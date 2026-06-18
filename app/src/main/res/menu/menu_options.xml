@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:title="Beranda" />
+    <item
+        android:id="@+id/menu_products"
+        android:title="Produk" />
+    <item
+        android:id="@+id/menu_cart"
+        android:title="Keranjang" />
+    <item
+        android:id="@+id/menu_orders"
+        android:title="Pesanan" />
+    <item
+        android:id="@+id/menu_login_logout"
+        android:title="Login / Logout" />
+</menu>

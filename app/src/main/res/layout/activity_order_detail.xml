@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail Pesanan"
+            android:textColor="@color/text_main"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_detail_card"
+            android:padding="14dp"
+            android:text="Memuat..."
+            android:textColor="@color/text_main"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txtQrInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_detail_card"
+            android:padding="14dp"
+            android:text="Tampilkan QR saat mengambil pesanan."
+            android:textColor="@color/text_muted"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnQr"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:text="Tampilkan QR"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:text="Kembali"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

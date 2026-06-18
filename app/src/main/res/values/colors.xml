@@ -1,0 +1,20 @@
+<resources>
+    <!-- Tema mengikuti web SiTahu: navy, orange-gold, putih, abu muda, dan cream. -->
+    <color name="primary">#C48922</color>
+    <color name="primary_dark">#142235</color>
+    <color name="primary_soft">#FFF3DD</color>
+    <color name="accent">#C48922</color>
+    <color name="bg">#F6F7F9</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_soft">#F1EEE8</color>
+    <color name="hero_soft">#FFF8EE</color>
+    <color name="text_main">#061A33</color>
+    <color name="text_muted">#657189</color>
+    <color name="danger">#CC3434</color>
+    <color name="danger_soft">#FFECEC</color>
+    <color name="green">#14A65B</color>
+    <color name="green_soft">#EAF8F0</color>
+    <color name="orange">#C48922</color>
+    <color name="orange_soft">#FFF1DA</color>
+    <color name="line">#E8E1D2</color>
+</resources>

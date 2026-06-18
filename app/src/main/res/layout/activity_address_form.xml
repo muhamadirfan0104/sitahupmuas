@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="14dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="14dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah Alamat"
+            android:textColor="@color/text_main"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Lengkapi data alamat pengiriman."
+            android:textColor="@color/text_muted"
+            android:textSize="12.5sp" />
+
+        <EditText
+            android:id="@+id/edtNama"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_order_card_simple"
+            android:hint="Nama penerima"
+            android:padding="12dp"
+            android:textColor="@color/text_main"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/edtTelp"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_order_card_simple"
+            android:hint="Nomor HP"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:textColor="@color/text_main"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/edtAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_order_card_simple"
+            android:gravity="top"
+            android:hint="Alamat lengkap"
+            android:padding="12dp"
+            android:textColor="@color/text_main"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/autoCatatan"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_order_card_simple"
+            android:hint="Patokan alamat"
+            android:padding="12dp"
+            android:textColor="@color/text_main"
+            android:textSize="13sp" />
+
+        <CheckBox
+            android:id="@+id/chkOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Jadikan alamat utama"
+            android:textColor="@color/text_main" />
+
+        <TextView
+            android:id="@+id/txtPoint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_order_card_simple"
+            android:padding="12dp"
+            android:text="Titik lokasi belum dipilih"
+            android:textColor="@color/text_muted"
+            android:textSize="12.5sp" />
+
+        <TextView
+            android:id="@+id/btnGps"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_button_outline_orange"
+            android:gravity="center"
+            android:text="Gunakan Lokasi Saat Ini"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnPickMap"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button_orange"
+            android:gravity="center"
+            android:text="Pilih Titik Alamat"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_button_orange"
+            android:gravity="center"
+            android:text="Simpan Alamat"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button_outline_orange"
+            android:gravity="center"
+            android:text="Kembali"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

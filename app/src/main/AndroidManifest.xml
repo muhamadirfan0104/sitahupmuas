@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+
+    <application android:allowBackup="true" android:usesCleartextTraffic="true" android:theme="@style/Theme.Sitahu" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true">
+        <activity android:name=".ui.checkout.CheckoutActivity" android:exported="false" />
+        <activity android:name=".ui.profile.EditProfileActivity" android:exported="false" />
+        <activity android:name=".ui.profile.ProfileVideoActivity" android:exported="false" />
+        <activity android:name=".ui.profile.ReviewMediaViewerActivity" android:exported="false" />
+        <activity android:name=".ui.profile.MyReviewsActivity" android:exported="false" />
+        <activity android:name=".ui.order.InvoiceViewerActivity" android:exported="false" />
+        <activity android:name=".ui.order.ReviewActivity" android:exported="false" />
+        <activity android:name=".ui.order.OrderDetailActivity" android:exported="false" />
+        <activity android:name=".ui.address.AddressFormActivity" android:exported="false" />
+        <activity android:name=".ui.address.AddressPickerActivity" android:exported="false" />
+        <activity android:name=".ui.address.AddressMapActivity" android:exported="false" />
+        <activity android:name=".ui.address.AddressActivity" android:exported="false" />
+        <activity android:name=".ui.product.ProductReviewsActivity" android:exported="false" />
+        <activity android:name=".ui.product.ProductDetailActivity" android:exported="false" />
+        <activity android:name=".ui.auth.AuthActivity" android:exported="false" />
+        <activity android:name=".ui.main.MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+</manifest>

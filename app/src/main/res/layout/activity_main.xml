@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:id="@+id/headerNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="30dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        android:background="@color/surface">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SiTahu"
+            android:textColor="@color/text_main"
+            android:textStyle="bold"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_search"
+            android:tint="@color/primary"
+            android:contentDescription="Cari" />
+
+        <TextView
+            android:id="@+id/btnMenu"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="⋮"
+            android:textColor="@color/text_main"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/headerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="30dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        android:visibility="gone"
+        android:background="@color/surface">
+
+        <TextView
+            android:id="@+id/btnSearchBack"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="@color/primary_dark"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="6dp"
+            android:background="@drawable/bg_search_box">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_search"
+                android:tint="@color/primary"
+                android:contentDescription="ikon cari" />
+
+            <AutoCompleteTextView
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Cari produk"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:singleLine="true"
+                android:textColor="@color/text_main"
+                android:textColorHint="@color/text_muted"
+                android:textSize="13sp"
+                android:inputType="text"
+                android:imeOptions="actionSearch" />
+
+            <TextView
+                android:id="@+id/btnDoSearch"
+                android:layout_width="64dp"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_button_orange"
+                android:gravity="center"
+                android:text="Cari"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/surface"
+        app:itemIconTint="@color/nav_item"
+        app:itemTextColor="@color/nav_item"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom" />
+</LinearLayout>

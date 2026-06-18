@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/bg_product_card">
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:background="@drawable/bg_product_thumb"
+        android:contentDescription="Gambar produk"
+        android:padding="18dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_box" />
+
+    <TextView
+        android:id="@+id/txtBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Baru"
+        android:textColor="@color/primary"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:gravity="top"
+        android:maxLines="2"
+        android:text="Nama Produk"
+        android:textColor="@color/text_main"
+        android:textSize="12.5sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Stok 100 pack"
+        android:textColor="@color/text_muted"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Rp25.000"
+        android:textColor="@color/primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/btnDetail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_outline_orange"
+            android:gravity="center"
+            android:text="Detail"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnAdd"
+            android:layout_width="34dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_button_orange"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
