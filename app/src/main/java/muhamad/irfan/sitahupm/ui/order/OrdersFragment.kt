@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -32,6 +33,15 @@ class OrdersFragment : Fragment() {
     private val allOrders = mutableListOf<Order>()
     private var currentFilter = "Semua"
 
+    companion object {
+        private const val MENU_DETAIL = 301
+        private const val MENU_QR = 302
+        private const val MENU_INVOICE = 303
+        private const val MENU_REVIEW = 304
+        private const val MENU_RECEIVED = 305
+        private const val MENU_CANCEL = 306
+    }
+
     private val filters = listOf(
         "Semua",
         "Belum Bayar",
@@ -50,11 +60,9 @@ class OrdersFragment : Fragment() {
         actionButton = view.findViewById(R.id.btnAction)
         filterWrap = view.findViewById(R.id.filterWrap)
 
-        adapter = OrderSimpleAdapter(
-            mutableListOf(),
-            { openDetail(it) },
-            { openSecondAction(it) }
-        )
+        adapter = OrderSimpleAdapter(mutableListOf()) { anchor, order ->
+            showOrderPopup(anchor, order)
+        }
 
         view.findViewById<RecyclerView>(R.id.rvList).apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -190,12 +198,79 @@ class OrdersFragment : Fragment() {
         )
     }
 
-    private fun openSecondAction(order: Order) {
+    private fun showOrderPopup(anchor: View, order: Order) {
+        val popup = PopupMenu(requireContext(), anchor)
+
+        popup.menu.add(0, MENU_DETAIL, 0, "Lihat Detail")
+        popup.menu.add(0, MENU_QR, 1, "Lihat QR")
+        popup.menu.add(0, MENU_INVOICE, 2, "Lihat Invoice")
+
         if (order.isSelesai) {
-            chooseProductForReview(order)
-        } else {
-            showQrPopup(order)
+            popup.menu.add(0, MENU_REVIEW, 3, "Beri Ulasan")
         }
+
+        if (order.canConfirmReceived) {
+            popup.menu.add(0, MENU_RECEIVED, 4, "Konfirmasi Diterima")
+        }
+
+        if (order.canCancel) {
+            popup.menu.add(0, MENU_CANCEL, 5, "Batalkan Pesanan")
+        }
+
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                MENU_DETAIL -> openDetail(order)
+                MENU_QR -> showQrPopup(order)
+                MENU_INVOICE -> openInvoice(order)
+                MENU_REVIEW -> chooseProductForReview(order)
+                MENU_RECEIVED -> confirmReceived(order)
+                MENU_CANCEL -> confirmCancel(order)
+            }
+            true
+        }
+
+        popup.show()
+    }
+
+    private fun openInvoice(order: Order) {
+        startActivity(
+            Intent(requireContext(), InvoiceViewerActivity::class.java)
+                .putExtra("order_id", order.id)
+                .putExtra("invoice", order.invoice.ifBlank { "Invoice" })
+                .putExtra("invoice_url", order.invoiceUrl)
+        )
+    }
+
+    private fun confirmCancel(order: Order) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Batalkan Pesanan")
+            .setMessage("Yakin ingin membatalkan pesanan ${order.invoice}?")
+            .setNegativeButton("Tidak", null)
+            .setPositiveButton("Batalkan") { _, _ ->
+                ApiClient.request(requireContext(), Request.Method.PATCH, "/orders/${order.id}/cancel", null, {
+                    toast("Pesanan berhasil dibatalkan")
+                    loadOrders()
+                }, {
+                    toast(it)
+                })
+            }
+            .show()
+    }
+
+    private fun confirmReceived(order: Order) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Konfirmasi Pesanan")
+            .setMessage("Konfirmasi bahwa pesanan ${order.invoice} sudah diterima?")
+            .setNegativeButton("Belum", null)
+            .setPositiveButton("Sudah Diterima") { _, _ ->
+                ApiClient.request(requireContext(), Request.Method.PATCH, "/orders/${order.id}/received", null, {
+                    toast("Pesanan dikonfirmasi diterima")
+                    loadOrders()
+                }, {
+                    toast(it)
+                })
+            }
+            .show()
     }
 
     private fun chooseProductForReview(order: Order) {

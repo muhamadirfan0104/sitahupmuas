@@ -11,8 +11,7 @@ import muhamad.irfan.sitahupm.util.FormatUtil
 
 class OrderSimpleAdapter(
     private val items: MutableList<Order>,
-    private val onDetail: (Order) -> Unit,
-    private val onSecond: (Order) -> Unit
+    private val onMenu: (View, Order) -> Unit
 ) : RecyclerView.Adapter<OrderSimpleAdapter.VH>() {
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
@@ -21,8 +20,7 @@ class OrderSimpleAdapter(
         val bayar: TextView = view.findViewById(R.id.txtBayar)
         val metode: TextView = view.findViewById(R.id.txtMetode)
         val total: TextView = view.findViewById(R.id.txtTotal)
-        val detail: TextView = view.findViewById(R.id.btnDetail)
-        val second: TextView = view.findViewById(R.id.btnQr)
+        val menu: TextView = view.findViewById(R.id.btnMenuPesanan)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -41,10 +39,9 @@ class OrderSimpleAdapter(
         holder.bayar.text = "Bayar: ${order.statusBayar.ifBlank { "-" }}"
         holder.metode.text = "${order.metodeAmbil.ifBlank { "-" }} • ${order.metodeBayar.ifBlank { "-" }}"
         holder.total.text = FormatUtil.rupiah(order.total)
-        holder.second.text = if (order.isSelesai) "Ulasan" else "QR"
 
-        holder.detail.setOnClickListener { onDetail(order) }
-        holder.second.setOnClickListener { onSecond(order) }
+        holder.menu.setOnClickListener { onMenu(holder.menu, order) }
+        holder.itemView.setOnClickListener { onMenu(holder.menu, order) }
     }
 
     fun setItems(newItems: List<Order>) {
